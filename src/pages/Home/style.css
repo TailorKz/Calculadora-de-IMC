@@ -81,3 +81,14 @@
         width: 20px;
         filter: invert(100%);
     }
+
+
+    @media (max-width: 700px) {
+        form {
+            max-width: 80%;
+        }
+
+        .resultado {
+           width: 350px;
+        }
+      }
