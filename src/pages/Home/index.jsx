@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import InputMask from 'react-input-mask';
 import './style.css';
 import Trash from '../../assets/trash.svg';
 
@@ -44,21 +45,14 @@ function Home() {
       <form>
         <h1>Calculadora de IMC</h1>
         <input
-          type="number"
-          name="Peso"
-          placeholder='Digite seu peso (kg)'
-          id="container--peso"
-          value={Peso}
-          onChange={evento => setPeso(evento.target.value)}
-        />
-        <input
-          type="number"
-          name="Altura"
-          placeholder='Digite sua altura (ex: 1.80 )'
-          id="container--altura"
-          value={Altura}
-          onChange={evento => setAltura(evento.target.value)}
-        />
+          type="number" name="Peso" placeholder='Digite seu peso (kg)'
+          id="container--peso" value={Peso} onChange={evento => setPeso(evento.target.value)}/>
+        <InputMask
+          mask="9.99" value={Altura} onChange={evento => setAltura(evento.target.value)}>
+          {() => (
+            <input type="text" name="Altura" placeholder='Digite sua altura (ex: 1.80)' id="container--altura"/>
+          )}
+        </InputMask>
         <button type="button" onClick={CalculaImc}>Calcular</button>
       </form>
       <div>
